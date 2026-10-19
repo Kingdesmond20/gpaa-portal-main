@@ -1,0 +1,5 @@
+# Normalize line endings to LF everywhere (repo AND working copy).
+# The app is built in Linux containers / deployed to an Ubuntu server, so
+# LF is the canonical format — this also silences the Windows
+# "LF will be replaced by CRLF" warnings on checkout.
+* text=auto eol=lf

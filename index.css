@@ -1,0 +1,90 @@
+@import "tailwindcss";
+
+/* Class-based dark mode: toggled via .dark on <html> (see components/ThemeToggle.tsx),
+   falls back to the user's OS preference on first visit. */
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  /* GPAA Primary Colors (Union Red) */
+  --color-primary: #C62828;
+  --color-primary-dark: #B71C1C;
+  --color-primary-light: #EF5350;
+  
+  /* Ghana Flag Colors */
+  --color-ghana-red: #CE1126;
+  --color-ghana-gold: #FCD116;
+  --color-ghana-green: #006B3F;
+  
+  /* Supporting Colors */
+  --color-accent: #FFA726;
+  --color-green: #2E7D32;
+  --color-green-dark: #1B5E20;
+  --color-green-light: #66BB6A;
+  --color-gold: #FFD700;
+  --color-gold-dark: #FFA500;
+  
+  /* Backgrounds */
+  --color-background-light: #f6f7f8;
+  --color-background-dark: #1a1a1a;
+
+  /* Dark mode surfaces (see components/ThemeToggle.tsx + dark: usage across pages) */
+  --color-surface-dark: #14181c;
+  --color-surface-dark-alt: #0c0f12;
+  --color-border-dark: #262c33;
+  
+  /* Typography */
+  --font-display: Cairo, sans-serif;
+  
+  /* Border Radius */
+  --radius: 0.25rem;
+  --radius-lg: 0.5rem;
+  --radius-xl: 0.75rem;
+  --radius-full: 9999px;
+}
+
+body {
+  font-family: 'Cairo', sans-serif;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.dark body {
+  background-color: var(--color-surface-dark-alt);
+  color: #e5e7eb;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+p {
+  line-height: 1.65;
+}
+
+::selection {
+  background-color: var(--color-primary);
+  color: white;
+}
+
+/* Visible keyboard focus state site-wide, without adding an outline on mouse clicks */
+:focus-visible {
+  outline: 3px solid var(--color-ghana-gold);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+.material-symbols-outlined {
+  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+}
+
+.timeline-line::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: #C6282822;
+  transform: translateX(-50%);
+}
