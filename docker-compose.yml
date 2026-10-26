@@ -1,0 +1,13 @@
+services:
+  gpaa-portal:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        VITE_SUPABASE_URL: ${VITE_SUPABASE_URL:?Set VITE_SUPABASE_URL}
+        VITE_SUPABASE_ANON_KEY: ${VITE_SUPABASE_ANON_KEY:?Set VITE_SUPABASE_ANON_KEY}
+        VITE_PAYSTACK_PUBLIC_KEY: ${VITE_PAYSTACK_PUBLIC_KEY:?Set VITE_PAYSTACK_PUBLIC_KEY}
+    container_name: gpaa-portal
+    ports:
+      - "127.0.0.1:8080:80"
+    restart: unless-stopped
